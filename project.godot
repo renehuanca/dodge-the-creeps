@@ -28,10 +28,12 @@ project/assembly_name="dodge-the-creeps"
 [file_customization]
 
 folder_colors={
-"res://assets/": "green",
+"res://assets/": "teal",
+"res://characters/": "blue",
 "res://characters/enemies/": "red",
-"res://characters/player/": "teal",
-"res://levels/": "purple"
+"res://characters/player/": "yellow",
+"res://levels/": "orange",
+"res://levels/main/": "orange"
 }
 
 [input]
