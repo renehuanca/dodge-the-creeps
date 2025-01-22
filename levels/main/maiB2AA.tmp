@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b2rgxyfpg6m15"]
+[gd_scene load_steps=10 format=4 uid="uid://b2rgxyfpg6m15"]
 
 [ext_resource type="PackedScene" uid="uid://jprnqhdom54v" path="res://characters/player/player.tscn" id="1_bkhgg"]
 [ext_resource type="Script" path="res://levels/main/main.gd" id="1_btwbj"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dgmcurfmnrjpo" path="res://levels/HUD.tscn" id="4_w871t"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="6_dfalb"]
 [ext_resource type="AudioStream" uid="uid://dlbs6rsdmuj24" path="res://assets/sounds/gameover.wav" id="6_i5mdr"]
-[ext_resource type="Texture2D" uid="uid://brcdkug5sw2yd" path="res://levels/main/space.png" id="7_7uwe5"]
 
 [sub_resource type="Curve2D" id="Curve2D_jxx0p"]
 _data = {
@@ -33,16 +32,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.156863, 0.192157, 0.305882, 1)
+color = Color(0.282353, 0.686275, 0.756863, 1)
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(300, 350)
-scale = Vector2(0.874286, 0.874286)
-texture = ExtResource("7_7uwe5")
-
-[node name="Player" parent="." node_paths=PackedStringArray("joystick") instance=ExtResource("1_bkhgg")]
-joystick = NodePath("../Virtual Joystick")
-speed = 300
+[node name="Player" parent="." instance=ExtResource("1_bkhgg")]
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -70,15 +62,6 @@ stream = SubResource("AudioStreamOggVorbis_xld3t")
 stream = ExtResource("6_i5mdr")
 
 [node name="Virtual Joystick" parent="." instance=ExtResource("6_dfalb")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -106.0
-offset_top = -215.0
-offset_right = 194.0
-offset_bottom = 85.0
-grow_horizontal = 2
-scale = Vector2(0.7, 0.7)
 
 [connection signal="hit" from="Player" to="." method="game_over"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]

@@ -35,8 +35,9 @@ animations = [{
 radius = 20.0
 height = 58.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" node_paths=PackedStringArray("joystick_left")]
 script = ExtResource("1_je6ve")
+joystick_left = NodePath("")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
